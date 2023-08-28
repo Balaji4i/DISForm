@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="AddEditDISFormPageDef"
+                Package="fragment">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XXSSHR_DIS_FORM_Hdr_VO" RangeSize="25" DataControl="Oando_AMDataControl"
+              id="XXSSHR_DIS_FORM_Hdr_VOIterator"/>
+    <iterator Binds="XXSSHR_DIS_FORM_LINES_VO" RangeSize="25" DataControl="Oando_AMDataControl"
+              id="XXSSHR_DIS_FORM_LINES_VOIterator"/>
+    <iterator Binds="XXSSHR_DIS_EMERGENCY_DETAILS_VO" RangeSize="25" DataControl="Oando_AMDataControl"
+              id="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator"/>
+    <iterator Binds="XxsshrDisContingentLinesVO" RangeSize="25" DataControl="Oando_AMDataControl"
+              id="XxsshrDisContingentLinesVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="ApprovalStatus">
+      <AttrNames>
+        <Item Value="ApprovalStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Name_Trans">
+      <AttrNames>
+        <Item Value="Name_Trans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Number_Trans">
+      <AttrNames>
+        <Item Value="Number_Trans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Email_Trans">
+      <AttrNames>
+        <Item Value="Email_Trans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Group_Trans">
+      <AttrNames>
+        <Item Value="Group_Trans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Trans_Cadre">
+      <AttrNames>
+        <Item Value="Trans_Cadre"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XXSSHR_DIS_FORM_LINES_VOIterator" id="XXSSHR_DIS_FORM_LINES_VO">
+      <nodeDefinition DefName="model.vo.XXSSHR_DIS_FORM_LINES_VO" Name="XXSSHR_DIS_FORM_LINES_VO0">
+        <AttrNames>
+          <Item Value="RelationshipType"/>
+          <Item Value="FullName"/>
+          <Item Value="Proportion"/>
+          <Item Value="MobileNo"/>
+          <Item Value="PrimaryContactFlag" Binds="PrimaryContactFlag"/>
+          <Item Value="SecondaryContactFlag" Binds="SecondaryContactFlag"/>
+          <Item Value="MobileNo1"/>
+          <Item Value="EmailAddress"/>
+          <Item Value="ResiAddress"/>
+          <Item Value="Dob"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XXSSHR_DIS_FORM_LINES_VOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XXSSHR_DIS_FORM_LINES_VOIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="Oando_AMDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="Oando_AMDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <tree IterBinding="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator" id="XXSSHR_DIS_EMERGENCY_DETAILS_VO">
+      <nodeDefinition DefName="model.vo.XXSSHR_DIS_EMERGENCY_DETAILS_VO" Name="XXSSHR_DIS_EMERGENCY_DETAILS_VO0">
+        <AttrNames>
+          <Item Value="EmerRelationshipType"/>
+          <Item Value="EmerFullName"/>
+          <Item Value="EmerMobileNo"/>
+          <Item Value="EmerPrimaryContactFlag" Binds="EmerPrimaryContactFlag"/>
+          <Item Value="EmerSecondaryContactFlag" Binds="EmerSecondaryContactFlag"/>
+          <Item Value="EmerResiAddress"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <button IterBinding="XXSSHR_DIS_FORM_LINES_VOIterator" id="PrimaryContactFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="PrimaryContactFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XXSSHR_DIS_FORM_LINES_VOIterator" id="SecondaryContactFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="SecondaryContactFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator" id="EmerPrimaryContactFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="EmerPrimaryContactFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator" id="EmerSecondaryContactFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="EmerSecondaryContactFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="TransactionDate">
+      <AttrNames>
+        <Item Value="TransactionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="ApproverComments">
+      <AttrNames>
+        <Item Value="ApproverComments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="TotalProportion">
+      <AttrNames>
+        <Item Value="TotalProportion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="DisFormNo">
+      <AttrNames>
+        <Item Value="DisFormNo"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="XXSSHR_DIS_EMERGENCY_DETAILS_VOIterator" id="DisEmerFlag" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="DisEmerFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XXSSHR_DIS_FORM_LINES_VOIterator" id="DisBeneFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="DisBeneFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="DisConfirmFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="DisConfirmFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="DisUnderstandFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="DisUnderstandFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action IterBinding="XxsshrDisContingentLinesVOIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxsshrDisContingentLinesVOIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="XxsshrDisContingentLinesVOIterator" id="XxsshrDisContingentLinesVO">
+      <nodeDefinition DefName="model.vo.XxsshrDisContingentLinesVO" Name="XxsshrDisContingentLinesVO0">
+        <AttrNames>
+          <Item Value="ContiRelationshipType"/>
+          <Item Value="ContiFullName"/>
+          <Item Value="ContiProportion"/>
+          <Item Value="ContiPrimaryContactFlag"/>
+          <Item Value="ContiSecondaryContactFlag"/>
+          <Item Value="ContiComments"/>
+          <Item Value="ContiMobileNo"/>
+          <Item Value="ContiMobileNo1"/>
+          <Item Value="ContiResiAddress"/>
+          <Item Value="ContiEmailAddress"/>
+          <Item Value="ContiDob"/>
+          <Item Value="ContiBeneFlag"/>
+          <Item Value="DisContingentId"/>
+          <Item Value="DisFormId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="TotalContiProportion">
+      <AttrNames>
+        <Item Value="TotalContiProportion"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SearchDISForm_BTF">
+    <default-activity>filterUser</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>mode</managed-bean-name>
+      <managed-bean-class>java.lang.String</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>headerId</managed-bean-name>
+      <managed-bean-class>java.math.BigDecimal</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__3">
+      <managed-bean-name>Filmstrip</managed-bean-name>
+      <managed-bean-class>com.view.beans.filmStrip.UtilsBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__18">
+      <managed-bean-name>SearchDisForm</managed-bean-name>
+      <managed-bean-class>view.onClickEdit</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__20">
+      <managed-bean-name>SearchDISForm</managed-bean-name>
+      <managed-bean-class>view.SearchDISForm</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchDISForm">
+      <page>/fragment/SearchDISForm.jsff</page>
+    </view>
+    <task-flow-call id="AddEditDISForm_BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/taskflow/AddEditDISForm_BTF.xml</document>
+        <id>AddEditDISForm_BTF</id>
+      </task-flow-reference>
+      <input-parameter id="__14">
+        <name>mode</name>
+        <value>#{pageFlowScope.mode}</value>
+      </input-parameter>
+      <input-parameter id="__15">
+        <name>headerId</name>
+        <value>#{pageFlowScope.headerId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <method-call id="Hide_FS">
+      <method>#{backingBeanScope.Filmstrip._hideFilmStrip}</method>
+      <outcome>
+        <fixed-outcome>hide</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Show_FS">
+      <method>#{backingBeanScope.Filmstrip._showFilmStrip}</method>
+      <outcome>
+        <fixed-outcome>show</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="filterUser">
+      <method>#{bindings.filterUser.execute}</method>
+      <outcome>
+        <fixed-outcome>filterUser</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id>SearchDISForm</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>addEdit</from-outcome>
+        <to-activity-id>Hide_FS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>Hide_FS</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>hide</from-outcome>
+        <to-activity-id>AddEditDISForm_BTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>AddEditDISForm_BTF</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>Show_FS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>Show_FS</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>show</from-outcome>
+        <to-activity-id>SearchDISForm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>filterUser</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>filterUser</from-outcome>
+        <to-activity-id>SearchDISForm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

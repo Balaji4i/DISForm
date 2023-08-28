@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DIS_EmerForm_VL"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  EntityAssociation="model.association.DIS_EmeForm_ASS">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.vl.DIS_EmerForm_VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XXSSHR_DIS_FORM_Hdr_VO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.vo.XXSSHR_DIS_FORM_Hdr_VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XXSSHR_DIS_FORM_Hdr_VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.vo.XXSSHR_DIS_FORM_Hdr_VO.DisFormId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XXSSHR_DIS_EMERGENCY_DETAILS_VO"
+    Cardinality="-1"
+    Owner="model.vo.XXSSHR_DIS_EMERGENCY_DETAILS_VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XXSSHR_DIS_EMERGENCY_DETAILS_VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.vo.XXSSHR_DIS_EMERGENCY_DETAILS_VO.DisFormId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

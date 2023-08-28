@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="SearchDISFormPageDef"
+                Package="fragment">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XXSSHR_DIS_FORM_Hdr_VO" RangeSize="5" DataControl="Oando_AMDataControl"
+              id="XXSSHR_DIS_FORM_Hdr_VOIterator"/>
+    <searchRegion Criteria="searchVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="XXSSHR_DIS_FORM_Hdr_VOIterator" id="searchVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="XXSSHR_DIS_FORM_Hdr_VO">
+      <nodeDefinition DefName="model.vo.XXSSHR_DIS_FORM_Hdr_VO" Name="XXSSHR_DIS_FORM_Hdr_VO0">
+        <AttrNames>
+          <Item Value="Name_Trans"/>
+          <Item Value="Number_Trans"/>
+          <Item Value="Group_Trans"/>
+          <Item Value="ApprovalStatus"/>
+          <Item Value="ApproverComments"/>
+          <Item Value="Comments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="DisFormId">
+      <AttrNames>
+        <Item Value="DisFormId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="Oando_AMDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Delete"
+            InstanceName="Oando_AMDataControl.XXSSHR_DIS_FORM_Hdr_VO" DataControl="Oando_AMDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="ApprovalStatus">
+      <AttrNames>
+        <Item Value="ApprovalStatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

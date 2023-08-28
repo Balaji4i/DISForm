@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <?audit suppress oracle.ide.xml.validation-error?>
+    <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
+        <f:facet name="pageContents">
+            <af:panelBox id="pb1" showDisclosure="false">
+                <af:panelGridLayout id="pgl1">
+                    <af:gridRow marginTop="5px" height="auto" id="gr1">
+                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                            <af:outputText value="Oando Know Buddy Form" id="ot1"
+                                           inlineStyle="font-size:large; font-weight:bold"/>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal" halign="right">
+                                <af:button text="Save" id="b3"
+                                    actionListener="#{backingBeanScope.AddEditBuddyForm.onClickSave}"
+                                    disabled="#{bindings.ApprovalStatus.inputValue eq 'SUBMITTED FOR APPROVAL' 
+                                      || bindings.ApprovalStatus.inputValue eq 'APPROVED'
+                                      || bindings.ApprovalStatus.inputValue eq 'REJECTED'? true : false}"                                          
+                                      />
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:button text="Submit" id="b6" disabled="#{bindings.ApprovalStatus.inputValue eq 'SUBMITTED FOR APPROVAL' 
+                                      || bindings.ApprovalStatus.inputValue eq 'APPROVED'
+                                      || bindings.ApprovalStatus.inputValue eq 'REJECTED'? true : false}"
+                                           actionListener="#{backingBeanScope.AddEditBuddyForm.onClickSubmit}"/>
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:button text="Cancel" id="b1"  
+                                actionListener="#{backingBeanScope.AddEditBuddyForm.onClickCancel}"
+                                           immediate="true" action="back"></af:button>
+                            </af:panelGroupLayout>
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelBox showDisclosure="false" inlineStyle="border-color:transparent;" id="pb2">
+                    <f:facet name="toolbar"/>
+                    <af:panelFormLayout id="pfl2" rows="2" maxColumns="2"  fieldWidth="400px">
+                        <af:inputText value="#{bindings.Name_Trns.inputValue}" label="#{bindings.Name_Trns.hints.label}"
+                                      required="#{bindings.Name_Trns.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.Name_Trns.hints.displayWidth}" contentStyle="width:250px;"
+                                      maximumLength="#{bindings.Name_Trns.hints.precision}"
+                                      shortDesc="#{bindings.Name_Trns.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.Name_Trns.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Email_Trns.inputValue}"
+                                      label="#{bindings.Email_Trns.hints.label}" readOnly="true"
+                                      contentStyle="width:250px;" required="#{bindings.Email_Trns.hints.mandatory}"
+                                      columns="#{bindings.Email_Trns.hints.displayWidth}"
+                                      maximumLength="#{bindings.Email_Trns.hints.precision}"
+                                      shortDesc="#{bindings.Email_Trns.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.Email_Trns.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Trans_Cadre.inputValue}" readOnly="true" label="Cadre"
+                                      contentStyle="width:160px;" autoSubmit="true"
+                                      required="#{bindings.Trans_Cadre.hints.mandatory}"
+                                      columns="#{bindings.Trans_Cadre.hints.displayWidth}"
+                                      maximumLength="#{bindings.Trans_Cadre.hints.precision}"
+                                      shortDesc="#{bindings.Trans_Cadre.hints.tooltip}" id="it2"
+                                      >
+                            <f:validator binding="#{bindings.Trans_Cadre.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Number_Trns.inputValue}"
+                                      label="#{bindings.Number_Trns.hints.label}" readOnly="true"
+                                      contentStyle="width:200px;" required="#{bindings.Number_Trns.hints.mandatory}"
+                                      columns="#{bindings.Number_Trns.hints.displayWidth}"
+                                      maximumLength="#{bindings.Number_Trns.hints.precision}"
+                                      shortDesc="#{bindings.Number_Trns.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.Number_Trns.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Group_Trns.inputValue}"
+                                      label="#{bindings.Group_Trns.hints.label}" readOnly="true"
+                                      contentStyle="width:250px;" required="#{bindings.Group_Trns.hints.mandatory}"
+                                      columns="#{bindings.Group_Trns.hints.displayWidth}"
+                                      maximumLength="#{bindings.Group_Trns.hints.precision}"
+                                      shortDesc="#{bindings.Group_Trns.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.Group_Trns.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Trans_AssignmentType.inputValue}"
+                                      label="#{bindings.Trans_AssignmentType.hints.label}" readOnly="true"
+                                      contentStyle="width:160px;" autoSubmit="true"
+                                      required="#{bindings.Trans_AssignmentType.hints.mandatory}"
+                                      columns="#{bindings.Trans_AssignmentType.hints.displayWidth}"
+                                      maximumLength="#{bindings.Trans_AssignmentType.hints.precision}"
+                                      shortDesc="#{bindings.Trans_AssignmentType.hints.tooltip}" id="it11">
+                            <f:validator binding="#{bindings.Trans_AssignmentType.validator}"/>
+                        </af:inputText>                       
+                    </af:panelFormLayout>
+                </af:panelBox>
+                <af:spacer width="10" height="30" id="s3"/>
+                <af:panelBox showDisclosure="false" inlineStyle="border-color:transparent;" id="pb3">
+                    <af:panelFormLayout id="pfl1" rows="3" maxColumns="2">
+                        <af:inputText value="#{bindings.KnowBuddyCareId.inputValue}" rendered="false"
+                                      label="#{bindings.KnowBuddyCareId.hints.label}" readOnly="true"
+                                      required="#{bindings.KnowBuddyCareId.hints.mandatory}"
+                                      disabled="#{pageFlowScope.mode eq 'edit' ? true : false}"
+                                      columns="#{bindings.KnowBuddyCareId.hints.displayWidth}"
+                                      maximumLength="#{bindings.KnowBuddyCareId.hints.precision}"
+                                      shortDesc="#{bindings.KnowBuddyCareId.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.KnowBuddyCareId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.KnowBuddyCareId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.KnowBuddyCareNo.inputValue}"
+                                      label="#{bindings.KnowBuddyCareNo.hints.label}"
+                                      readOnly="true"
+                                      required="#{bindings.KnowBuddyCareNo.hints.mandatory}"
+                                      columns="#{bindings.KnowBuddyCareNo.hints.displayWidth}"
+                                      maximumLength="#{bindings.KnowBuddyCareNo.hints.precision}"
+                                      shortDesc="#{bindings.KnowBuddyCareNo.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.KnowBuddyCareNo.validator}"/>
+                        </af:inputText>                        
+                        <af:inputDate value="#{bindings.TransactionDate.inputValue}"
+                                      label="#{bindings.TransactionDate.hints.label}" autoSubmit="true"
+                                      required="true"                                       
+                                      disabled="true"
+                                      shortDesc="#{bindings.TransactionDate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.TransactionDate.validator}"/>
+                            <af:convertDateTime pattern="dd-MMM-yyyy"/>
+                        </af:inputDate>                         
+                         <af:inputText value="#{bindings.Trans_Value.inputValue}" readOnly="true" 
+                                      label="#{bindings.Trans_Value.hints.label}" contentStyle="width:160px;"
+                                      required="#{bindings.Trans_Value.hints.mandatory}"  autoSubmit="true"
+                                      columns="#{bindings.Trans_Value.hints.displayWidth}" 
+                                      maximumLength="#{bindings.Trans_Value.hints.precision}"
+                                      shortDesc="#{bindings.Trans_Value.hints.tooltip}" 
+                                     id="it6">
+                            <f:validator binding="#{bindings.Trans_Value.validator}"/>
+                        </af:inputText>
+                        <af:panelLabelAndMessage label="#{bindings.ApprovalStatus.hints.label}" id="plam1">
+                            <af:outputText value="#{bindings.ApprovalStatus.inputValue}"
+                            inlineStyle="color:#{(bindings.ApprovalStatus.inputValue eq 'APPROVED')?'green':(bindings.ApprovalStatus.inputValue eq 'SUBMITTED FOR APPROVAL')?'orange':(bindings.ApprovalStatus.inputValue eq 'DRAFT') ? 'black' : 'red'};"
+                                           shortDesc="#{bindings.ApprovalStatus.hints.tooltip}" id="ot2"/>
+                        </af:panelLabelAndMessage>
+                        <af:inputText value="#{bindings.PreviousApprover.inputValue}" label="Previous Approver"
+                                      contentStyle="width:160px;" readOnly="true"
+                                      required="#{bindings.PreviousApprover.hints.mandatory}"
+                                      columns="#{bindings.PreviousApprover.hints.displayWidth}"
+                                      maximumLength="#{bindings.PreviousApprover.hints.precision}"
+                                      shortDesc="#{bindings.PreviousApprover.hints.tooltip}" id="it15">
+                            <f:validator binding="#{bindings.PreviousApprover.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.NextApprover.inputValue}" label="Next Approver"
+                                      contentStyle="width:160px;" readOnly="true"
+                                      required="#{bindings.NextApprover.hints.mandatory}"
+                                      columns="#{bindings.NextApprover.hints.displayWidth}"
+                                      maximumLength="#{bindings.NextApprover.hints.precision}"
+                                      shortDesc="#{bindings.NextApprover.hints.tooltip}" id="it16">
+                            <f:validator binding="#{bindings.NextApprover.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Comments.inputValue}" label="#{bindings.Comments.hints.label}"
+                                      rows="5" autoSubmit="true"
+                                      disabled="#{bindings.ApprovalStatus.inputValue eq 'SUBMITTED FOR APPROVAL' 
+                                      || bindings.ApprovalStatus.inputValue eq 'APPROVED' 
+                                      || bindings.ApprovalStatus.inputValue eq 'CANCELLED'
+                                      || bindings.ApprovalStatus.inputValue eq 'PAYROLL ENTRY POSTED'
+                                      || bindings.ApprovalStatus.inputValue eq 'REJECTED'? true : false}"
+                                      columns="#{bindings.Comments.hints.displayWidth}"                                      
+                                      maximumLength="#{bindings.Comments.hints.precision}"
+                                      shortDesc="#{bindings.Comments.hints.tooltip}" id="it5">
+                            <f:validator binding="#{bindings.Comments.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ApproverComments.inputValue}"
+                                      label="Approver Comments" rows="5" readOnly="true"
+                                      required="#{bindings.ApproverComments.hints.mandatory}" contentStyle="width:340px;"
+                                      columns="#{bindings.ApproverComments.hints.displayWidth}"
+                                      maximumLength="#{bindings.ApproverComments.hints.precision}"
+                                      shortDesc="#{bindings.ApproverComments.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.ApproverComments.validator}"/>
+                        </af:inputText>
+                       
+                    </af:panelFormLayout>
+                </af:panelBox>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="footerStart"/>
+        <f:facet name="footer"/>
+        <f:facet name="footerEnd"/>
+        <f:facet name="startPanel"/>
+        <f:facet name="endPanel"/>
+        <f:facet name="headerStart"/>
+        <f:facet name="header"/>
+        <f:facet name="headerEnd"/>
+    </af:pageTemplate>
+</jsp:root>

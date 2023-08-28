@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DISContingent_VL"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  EntityAssociation="model.association.DISContingent_ASS">
+  <ViewLinkDefEnd
+    Name="XXSSHR_DIS_FORM_Hdr_VO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.vo.XXSSHR_DIS_FORM_Hdr_VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XXSSHR_DIS_FORM_Hdr_VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.vo.XXSSHR_DIS_FORM_Hdr_VO.DisFormId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XxsshrDisContingentLinesVO"
+    Cardinality="-1"
+    Owner="model.vo.XxsshrDisContingentLinesVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="XxsshrDisContingentLinesVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.vo.XxsshrDisContingentLinesVO.DisFormId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

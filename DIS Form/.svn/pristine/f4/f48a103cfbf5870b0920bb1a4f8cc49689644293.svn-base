@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="SearchDISForm_BTF_SearchDISForm_BTF_ExecutePageDef" Package="taskflow" SkipValidation="true">
+    <parameters/>
+    <executables>
+        <iterator Binds="XXSSHR_DIS_FORM_Hdr_VO" RangeSize="25" DataControl="Oando_AMDataControl"
+                  id="XXSSHR_DIS_FORM_Hdr_VOIterator"/>
+    </executables>
+    <bindings>
+        <action IterBinding="XXSSHR_DIS_FORM_Hdr_VOIterator" id="Execute" RequiresUpdateModel="true"
+                InstanceName="Oando_AMDataControl.XXSSHR_DIS_FORM_Hdr_VO" DataControl="Oando_AMDataControl"
+                Action="iteratorExecute"/>
+    </bindings>
+</pageDefinition>
